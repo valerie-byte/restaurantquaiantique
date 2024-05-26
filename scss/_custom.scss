@@ -1,0 +1,18 @@
+// ce fichier ne doit pas être compilé
+// fichier récupéré sur bootstrap https://getbootstrap.com/docs/5.3/customize/sass/#file-structure
+// Custom.scss
+// Option A: Include all of Bootstrap
+
+// Include any default variable overrides here (though functions won't be available)
+// on modifie la variable primary de bootstrap pour mettre sa propre charte graphique
+$primary: #906427;
+$secondary: #B6AC97;
+$dark: #392C1E;
+$black: #292222;
+$font-family-sans-serif:"montserrat", sans-serif !default;
+$font-family-serif:"hind madurai", serif !default;
+
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+// Then add additional custom code here

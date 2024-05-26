@@ -1,0 +1,9 @@
+// fichier principal pour faire du css
+//  test
+/* footer {
+    color:green !important;
+}*/
+// on importe boostratp icon
+@import url("/node_modules/bootstrap-icons/font/bootstrap-icons.css");
+// on appelle le fichier custom.scss
+@import 'custom';

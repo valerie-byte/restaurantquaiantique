@@ -7,3 +7,20 @@
 @import url("/node_modules/bootstrap-icons/font/bootstrap-icons.css");
 // on appelle le fichier custom.scss
 @import 'custom';
+
+// footer en bas de la page
+html {
+    position:relative;
+    min-height: 100%;
+}
+// footer en bas de la page
+footer.footer {
+    padding: 15px;
+    position:absolute;
+    bottom: 0;
+    width:100%;
+}
+
+main {
+    margin-bottom: 250px;
+}

@@ -32,6 +32,7 @@ p {
 // avant le bloc hero scene on cale un élément rien
 .hero-scene{
     position: relative;
+    margin-bottom: 15px;
     &::before{
         content:"";
         position: absolute;
@@ -90,4 +91,9 @@ p {
         transition:all 0.3s;
 
     }
+}
+
+.form-label {
+    color: $primary;
+
 }

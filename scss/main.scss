@@ -15,7 +15,7 @@ html {
 }
 // footer en bas de la page
 footer.footer {
-    padding: 15px;
+    padding: 10px;
     position:absolute;
     bottom: 0;
     width:100%;
@@ -60,4 +60,34 @@ p {
 
 .text-justify {
     text-align: justify;
+}
+
+.image-card {
+    // audessue de l'image
+    position:relative;
+// quand on passe la souris sur image
+
+    &:hover{
+        .titre-image {
+            opacity:1;
+        }
+        img {
+            filter:brightness(0.3);
+        }
+    }
+    img {
+        transition:all 0.3s;
+    }
+
+    .titre-image {
+        // audessus de l'image
+        position:absolute;
+        // centrer un élément en position aboslue
+        top:50%;
+        left:50%;
+        transform:translate(-50%, -50%);
+        opacity:0;
+        transition:all 0.3s;
+
+    }
 }

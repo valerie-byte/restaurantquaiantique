@@ -6,8 +6,10 @@ import Route from "./route.js";
 export const allRoutes = [
     new Route("/", "Accueil", "./pages/home.html"),
     new Route("/galerie", "La Galerie", "./pages/galerie.html"),
-    new Route("/signin", "connexion", "./pages/signin.html"),
-    new Route("/signup", "inscription", "./pages/signup.html"),
+    new Route("/signin", "connexion", "./pages/auth/signin.html"),
+    new Route("/signup", "inscription", "./pages/auth/signup.html"),
+    new Route("/account", "mon compte", "./pages/auth/account.html"),
+    new Route("/editpassword", "changement mot de passe", "./pages/editpassword.html"),
 
 ];
 

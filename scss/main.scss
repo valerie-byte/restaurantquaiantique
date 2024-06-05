@@ -69,7 +69,8 @@ p {
 // quand on passe la souris sur image
 
     &:hover{
-        .titre-image {
+        .titre-image,
+        .action-image-bouton {
             opacity:1;
         }
         img {
@@ -90,6 +91,19 @@ p {
         opacity:0;
         transition:all 0.3s;
 
+    }
+    .action-image-bouton {
+        
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        padding: 5px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        opacity:0;
+        transition:all 0.3s;
     }
 }
 

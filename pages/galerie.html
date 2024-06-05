@@ -5,14 +5,21 @@
         <h1>Galerie</h1>
     </diV>
 </div>
-
+<!-- les images sont mises -->
 <div class="container">
+    <div class="text-center">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editionPhotModal">ajouter une photo</button>
+    </div>
 <!-- a partir de taille lg on met 3 image, en dessous on en met 2 -->
   <div class="row row-cols-2 row-cols-lg-3">
     <div class="col p-3">
         <div class="image-card text-white ">
             <img src="../images/galerie1.jpg" class="rounded w-100">
             <p class="titre-image">titre</p>
+            <div class="action-image-bouton">
+                <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#editionPhotModal"><i class="bi bi-pencil-fill"></i></button>
+                <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#deletePhotoModal"><i class="bi bi-trash3 "></i></button>
+            </div>
         </div>
     </div>
 
@@ -52,5 +59,64 @@
     </div>
  
   </div>
+  <div class="text-center">
+    <button hre="#" class="btn btn-primary">réserver</button>
+</div>
 
+</div>
+
+<!-- fenêtre Modal édition labelledby ou on trouve le titre-->
+<div class="modal fade" id="editionPhotModal" tabindex="-1" aria-labelledby="editionPhotModallabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" id="editionPhotModallabel">Edition photo</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <!-- corps de la fenetre modale -->
+        <div class="modal-body">
+          formulaire d'édition de photo
+          <div class="container">
+            <form>
+                <!-- mb3 margin bottom, for du label = id de l'input -->
+                <div class="mb-3">
+                    
+                  <label for="namePhotoInput" class="form-label">titre de la photo</label>
+                  <input type="text" class="form-control" id="namePhotoInput" placeholder="lasagnes" > 
+                </div>
+                <div class="mb-3">
+                  <label for="ImageInput" class="form-label">Image</label>
+                  <input type="file" class="form-control" id="ImageInput">
+                </div>
+                <div class="text-center">
+                    <button type="button" class="btn btn-primary">enregistrer</button>
+                </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ <!-- suppression edition -->
+<div class="modal fade" id="deletePhotoModal" tabindex="-1" aria-labelledby="deletePhotoModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title fs-5" id="deletePhotoModalLabel">suppression Photo</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <form>
+              <div class="mb-3">
+                <p>titre</p>
+                <img src="../images/galerie1.jpg" class="rounded w-100"> 
+              </div>
+              <div class="text-center">
+                  <button type="button" class="btn btn-danger">supprimer</button>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">annuler</button>
+              </div>
+          </form>
+      </div>
+    </div>
+  </div>
 </div>

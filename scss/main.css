@@ -11982,7 +11982,7 @@ footer.footer {
 }
 
 main {
-  margin-bottom: 250px;
+  margin-bottom: 270px;
 }
 
 p {
@@ -12023,7 +12023,8 @@ p {
 .image-card {
   position: relative;
 }
-.image-card:hover .titre-image {
+.image-card:hover .titre-image,
+.image-card:hover .action-image-bouton {
   opacity: 1;
 }
 .image-card:hover img {
@@ -12037,6 +12038,18 @@ p {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: all 0.3s;
+}
+.image-card .action-image-bouton {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   opacity: 0;
   transition: all 0.3s;
 }

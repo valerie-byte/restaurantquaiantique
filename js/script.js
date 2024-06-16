@@ -1,6 +1,18 @@
 //méthode de gestion de cookies suite de chaines de caractères
 // nom du cookie = accesstoken
+// deconnexion = suppression du cookie accesstoken
 const tokenCookieName = "accesstoken";
+const signoutBtn = document.getElementById("signout-btn");
+
+signoutBtn.addEventListener("click", signout);
+
+function signout() {
+    // efface le cookie qui a pour nom accesstoken
+    eraseCookie(tokenCookieName);
+    // acutalise la page
+    window.location.reload();
+}
+
 // place le token en cookie
 function setToken(token){
     // nbre de jours 7 jours

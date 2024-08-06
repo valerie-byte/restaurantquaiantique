@@ -47,12 +47,13 @@
                   <li class="nav-item">
                     <a class="nav-link" href="/account">Mon compte</a>
                   </li>
-                  <li class="nav-item">
+                  <!-- pour personnes connectée -->
+                  <li class="nav-item" data-show="disconnected">
                     <a class="nav-link" href="/signin">connexion</a>
                   </li>
                   <li class="nav-item">
-                    <!-- au clic sur le bouton on se déconnecte du site  -->
-                    <button class="nav-link" id="signout-btn">déconnexion</button>
+                    <!-- au clic sur le bouton on se déconnecte du site , data attribute uniq pour personnes déconnecté -->
+                    <button class="nav-link" id="signout-btn" data-show="connected">déconnexion</button>
                   </li>
                 </ul>
                 </div>

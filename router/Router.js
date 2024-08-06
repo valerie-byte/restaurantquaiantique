@@ -2,7 +2,7 @@ import Route from "./route.js";
 import { allRoutes, websiteName } from "./allRoutes.js";
 
 // Création d'une route pour la page 404 (page introuvable)
-const route404 = new Route("404", "Page introuvable", "/pages/404.html");
+const route404 = new Route("404", "Page introuvable", "/pages/404.html", []);
 
 // Fonction pour récupérer la route correspondant à une URL donnée
 const getRouteByUrl = (url) => {
@@ -31,6 +31,30 @@ const LoadContentPage = async () => {
   // Ajout du contenu HTML à l'élément avec l'ID "main-page"
   document.getElementById("main-page").innerHTML = html;
 
+
+// si utilisateur à le droit d'accès à cette page
+
+  //Vérifier les droits d'accès à la page
+  const allRolesArray = actualRoute.authorize;
+// si taille du tableau est >0
+  if(allRolesArray.length > 0){
+    // inclut élément disconnected
+    if(allRolesArray.includes("disconnected")){
+      // si utilisateur est connecté on le rejette
+      if(isConnected()){
+        // on le redirige vers page accueil, vers une autre page
+        window.location.replace("/");
+      }
+    }
+    else{
+      const roleUser = getRole();
+      //  si le tableau ne contient pas le role de l'utilisateur
+      if(!allRolesArray.includes(roleUser)){
+        window.location.replace("/");
+      }
+    }
+  }
+
   // Ajout du contenu JavaScript
   if (actualRoute.pathJS != "") {
     // Création d'une balise script
@@ -45,6 +69,9 @@ const LoadContentPage = async () => {
   // Changement du titre de la page
   document.title = actualRoute.title + " - " + websiteName;
 };
+
+// afficher et masquer élément en fonction du rôle
+showAndHideElementsForRoles();
 
 // Fonction pour gérer les événements de routage (clic sur les liens)
 const routeEvent = (event) => {
@@ -62,3 +89,5 @@ window.onpopstate = LoadContentPage;
 window.route = routeEvent;
 // Chargement du contenu de la page au chargement initial
 LoadContentPage();
+
+

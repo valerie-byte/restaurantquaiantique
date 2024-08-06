@@ -20,6 +20,8 @@ function checkCredentials(){
 
          //setCookie(RoleCookieName, "admin", 7);
         //  redirige vers page accueil
+        //place ce token en cookie on ajoute un cookie appelé role et qui dure 7jours, valeur = admin
+        setCookie("RoleCookieName", "client",7);
         window.location.replace("/");
     } else {
         mailInput.classList.add("is-invalid");

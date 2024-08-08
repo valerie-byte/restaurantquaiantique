@@ -6,6 +6,7 @@ const inputMail = document.getElementById("EmailInput");
 const inputPassword = document.getElementById("PasswordInput");
 const inputValidatePassword = document.getElementById("ValidatePasswordInput");
 const btnvalidation = document.getElementById("btn-validation-inscription");
+const formInscription = document.getElementById("formulaireInscription")
 
 // type d'évènement keyup sur touche relachée
 inputNom.addEventListener("keyup",validateForm);
@@ -13,6 +14,7 @@ inputPrenom.addEventListener("keyup",validateForm);
 inputMail.addEventListener("keyup",validateForm);
 inputPassword.addEventListener("keyup",validateForm);
 inputValidatePassword.addEventListener("keyup",validateForm);
+btnvalidation.addEventListener('click', inscrireUtilisateur);
 
 // vérifie nom et prénom, valide tout le formualaire
 function validateForm() {
@@ -90,4 +92,42 @@ function validateRequired (input) {
         input.classList.remove("is-valid");
         return false;
     }
+}
+
+function inscrireUtilisateur() {
+    let dataForm = new FormData(formInscription);
+
+    let myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    let raw = JSON.stringify({
+        "firstName": dataForm.get("nom"),
+        "lastName": dataForm.get("prenom"),
+        "email": dataForm.get("email"),
+        "password": dataForm.get("motdepasse")
+});
+
+    let requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+};
+
+fetch("https://127.0.0.1:8000/api/registration", requestOptions)
+    .then(response => {
+        if(response.ok){
+            return response.json();
+        }
+        else {
+            alert("Erreur lors de l'inscription");
+        }
+    })
+    .then(result => {
+        // vers la page de connexion
+        alert("Bravo "+dataForm.get("prenom")+", vous êtes maintenant inscrit, vous pouvez vous connecter.");
+        document.location.href="/signin";
+    })
+    .catch(error => console.log('error', error));
+   
 }

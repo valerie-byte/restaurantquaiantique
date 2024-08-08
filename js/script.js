@@ -4,6 +4,7 @@
 const tokenCookieName = "accesstoken";
 const RoleCookieName = "role";
 const signoutBtn = document.getElementById("signout-btn");
+const apiURL ="https://127.0.00.1:8000/api/";
 
 signoutBtn.addEventListener("click", signout);
 //on ércupère le role
